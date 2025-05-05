@@ -1,12 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import validators
-from wtforms.fields import *
-
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email
 
 class LoginForm(FlaskForm):
-    pass
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    password = PasswordField("Password", validators=[DataRequired()])
+    submit = SubmitField("Login")
 
 class RegisterForm(FlaskForm):
     pass
-
-
